@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/where', function () { //где найти
+     return view('where');
+});
 // Route::get('/where', function () { //где найти
 //     return view('where');
 // });
