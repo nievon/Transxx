@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\product;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,18 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/where', function () { //где найти
-     return view('where');
+Route::get('/', function () {
+    return view('welcome');
 });
-// Route::get('/where', function () { //где найти
-//     return view('where');
-// });
 
-// Auth::routes();
+Auth::routes();
 
-Route::get('/studenty', [App\Http\Controllers\Studentys::class, 'stud']);
-// Route::get('/trugames', [App\Http\Controllers\tovar::class, 'about']); //о нас
-// Route::get('/catalog', [App\Http\Controllers\tovar::class, 'catalog']); //каталог
-
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/where', function () {
+    return view('where');
+});
+Route::get('/catalog', [product::class, 'prodlist']);
+Route::get('/catalog/filter/{id}',[product::class, 'filterr']);
+Route::get('/catalog/sort/{name}/{sort}',[product::class,'prodlist']);
+Route::get('/about', [App\Http\Controllers\about::class, 'slider']);
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); 

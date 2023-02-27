@@ -13,12 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('studenties', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->string('fio');
-            $table->string('img');
-        });
+        //
     }
 
     /**
@@ -28,6 +23,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('studenties');
+        //
     }
 };
