@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -27,4 +26,4 @@ Route::get('/catalog', [product::class, 'prodlist']);
 Route::get('/catalog/filter/{id}',[product::class, 'filterr']);
 Route::get('/catalog/sort/{name}/{sort}',[product::class,'prodlist']);
 Route::get('/about', [App\Http\Controllers\about::class, 'slider']);
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
