@@ -1,9 +1,7 @@
 <?php
-
 use App\Http\Controllers\product;
 use App\Http\Controllers\adminpanel;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,11 +19,20 @@ Auth::routes();
 Route::get('/where', function () {
     return view('where');
 });
-Route::get('/admin',[adminpanel::class,'admin'])->name('admin');
-Route::get('/admin/product',[adminpanel::class,'prod']);
-Route::get('/admin/product/delete/{id}',[adminpanel::class,'proddel']);
-Route::get('/admin/category',[adminpanel::class,'cat']);
-Route::get('/admin/category/delete/{id}',[adminpanel::class,'catdel']);
+//Ссылки админ панели
+Route::get('/admin',[adminpanel::class,'admin'])->name('admin');//Админ панель
+Route::get('/admin/product',[adminpanel::class,'prod']);//Форма создания товара
+Route::post('/admin/product/create',[adminpanel::class,'prodcreate'])->name('createprod'); // Отправка данных в базу данных
+Route::get('/admin/product/delete/{id}',[adminpanel::class,'proddel']);//Удаление продукта из базы данных
+Route::get('/admin/category',function (){
+    return view('createcat');
+});//Форма создания категорий
+Route::post('/admin/category/create',[adminpanel::class,'catcreate'])->name('createcat');
+Route::get('/admin/category/delete/{id}',[adminpanel::class,'catdel']);//Удаление категории из базы данных
+//Конец ссылок админ панели
 Route::get('/catalog/product/{id}',[App\Http\Controllers\oneproduct::class, 'onelist']);
 Route::get('/catalog',[product::class,'prodlist']);
 Route::get('/catalog/filter/{id}', [product::class, 'filterr']);
+Route::get('/catalog/sort/{name}/{sort}', [product::class, 'prodlist']);
+Route::get('/about', [App\Http\Controllers\about::class, 'slider']);
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -4,7 +4,7 @@
     <h3 class="d-flex justify-content-center">Управление товаром</h3>
     <div class="container">
         <div class="row">
-            <a href="" class="btn btn-info justify-content-center">создать товар</a>
+            <a href="{{url('/admin/product')}}" class="btn btn-info justify-content-center">создать товар</a>
         </div>
         @foreach($prod as $obprod)
             <div class="row">
@@ -18,9 +18,20 @@
                 <div class="col">
                     <a href="{{url('/admin/product/delete/')}}/{{$obprod->id}}" class="btn btn-danger">Удалить</a>
                 </div> <!-- это кнопка отвечает за удаление товара из базы данных -->
-
             </div>
-	@@ -37,7 +37,7 @@
+        @endforeach
+    </div>
+    <h3 class=" d-flex justify-content-center">Упрваление категориями</h3>
+    <div class="container">
+        <div class="row">
+            <a href="{{url('/admin/category')}}" class="btn btn-info justify-content-center">создать категорию</a>
+        </div>
+        @foreach($cat as $obcat)
+            <div class="row">
+                <div class="col">
+                    <h3>{{$obcat->name}}</h3>
+                </div>
+                <div class="col">
                     <a href="" class=" btn btn-primary">Редактировать</a>
                 </div>
                 <div class="col">
@@ -28,3 +39,5 @@
                 </div>
             </div>
         @endforeach
+    </div>
+@endsection
