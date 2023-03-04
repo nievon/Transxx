@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-
         <div class="row justify-content-center">
             <div class="col-mb-8">
                 <div class="card">
@@ -10,7 +9,7 @@
                     </div>
                     <div class="card-body">
                         <form method="post" action="{{route('createcat')}}">
-                            {{csrf_field()}}
+                            @csrf
                             <div class="row mb-3">
                                 <label for="name" class="col-form-label col-md-4 text-mb-end">Название категории</label>
                                 <div class="col-md-6">
