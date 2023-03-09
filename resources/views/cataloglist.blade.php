@@ -1,5 +1,8 @@
 @extends('layouts.app')
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6533f795cc7ff97ddd4089318e0b0f5cdd0ddb89
 @section('content')
     <h1 class="d-flex justify-content-center">Каталог</h1>
     <div class="btn-group">
@@ -22,7 +25,10 @@
                 Сортировка
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6533f795cc7ff97ddd4089318e0b0f5cdd0ddb89
                 <li><a class="dropdown-item" href="{{url('/catalog/sort')}}/id/desc"/>от недавно добавленных к
                     старым</a>
                 </li>
@@ -41,9 +47,13 @@
                 <li><a class="dropdown-item" href="{{url('/catalog')}}">сборосить фильтр</a></li>
             </ul>
         </div>
+<<<<<<< HEAD
 
     </div>
 
+=======
+    </div>
+>>>>>>> 6533f795cc7ff97ddd4089318e0b0f5cdd0ddb89
     <div class="list">
         <div class="row">
             @foreach($prod as $obprod)
@@ -60,4 +70,8 @@
             @endforeach
         </div>
     </div>
+<<<<<<< HEAD
 @endsection
+=======
+@endsection
+>>>>>>> 6533f795cc7ff97ddd4089318e0b0f5cdd0ddb89

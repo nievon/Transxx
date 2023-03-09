@@ -1,7 +1,10 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6533f795cc7ff97ddd4089318e0b0f5cdd0ddb89
         <div class="row justify-content-center">
             <div class="col-mb-8">
                 <div class="card">
@@ -13,7 +16,10 @@
                             @csrf
                             <div class="row mb-3">
                                 <label for="name" class="col-md-4 col-form-label text-md-end">Название товара</label>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6533f795cc7ff97ddd4089318e0b0f5cdd0ddb89
                                 <div class="col-md-6">
                                     <input class="form-control" id="name" type="text" name="name" required autofocus>
                                 </div>
@@ -29,7 +35,10 @@
                             </div>
                             <div class="row mb-3">
                                 <label for="price" class="col-md-4 col-form-label text-md-end">Цена</label>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6533f795cc7ff97ddd4089318e0b0f5cdd0ddb89
                                 <div class="col-md-6">
                                     <input class="form-control" id="price" type="number" name="price" required autofocus>
                                 </div>
@@ -37,7 +46,10 @@
                             <div class="row mb-3">
                                 <label for="year_of_production" class="col-md-4 col-form-label text-md-end">Дата выхода
                                     продукта</label>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6533f795cc7ff97ddd4089318e0b0f5cdd0ddb89
                                 <div class="col-md-6">
                                     <input class="form-control" id="year_of_production" type="text"
                                            name="year_of_production" required autofocus>
@@ -45,6 +57,7 @@
                             </div>
                             <div class="row mb-3">
                                 <label for="country_of_origin" class="col-md-4 col-form-label text-md-end">Страна
+<<<<<<< HEAD
                                     производитель</label>
 
                                 <div class="col-md-6">
@@ -91,3 +104,6 @@
         </div>
     </div>
 @endsection
+=======
+                                    производитель</label>
+>>>>>>> 6533f795cc7ff97ddd4089318e0b0f5cdd0ddb89

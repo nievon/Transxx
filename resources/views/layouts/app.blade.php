@@ -3,16 +3,18 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+<<<<<<< HEAD
 
     <title>True games</title>
 
+=======
+    <title>True games</title>
+>>>>>>> 6533f795cc7ff97ddd4089318e0b0f5cdd0ddb89
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
@@ -28,6 +30,7 @@
                     aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>
+<<<<<<< HEAD
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
@@ -53,6 +56,32 @@
 
                 </ul>
 
+=======
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Left Side Of Navbar -->
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/about')}}">О нас</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/where')}}">Где нас найти</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/catalog')}}">Каталог</a>
+                    </li>
+
+                        @if(!Auth::check() || !Auth::user()->isAdmin())
+
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url('/admin')}}">админка</a>
+                        </li>
+                    @endif
+
+
+                </ul>
+
+>>>>>>> 6533f795cc7ff97ddd4089318e0b0f5cdd0ddb89
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ms-auto">
                     <!-- Authentication Links -->
@@ -60,6 +89,7 @@
                         @if (Route::has('login'))
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+<<<<<<< HEAD
                             </li>
                         @endif
 
@@ -68,11 +98,21 @@
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                         @endif
+=======
+                            </li>
+                        @endif
+                        @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            </li>
+                        @endif
+>>>>>>> 6533f795cc7ff97ddd4089318e0b0f5cdd0ddb89
                     @else
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
+<<<<<<< HEAD
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -100,3 +140,6 @@
 </div>
 </body>
 </html>
+=======
+                            </a>
+>>>>>>> 6533f795cc7ff97ddd4089318e0b0f5cdd0ddb89
