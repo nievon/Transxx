@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
-    <title><?php echo e(config('app.name', 'Laravel')); ?></title>
+    <title>True games</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -17,68 +17,89 @@
     <?php echo app('Illuminate\Foundation\Vite')(['resources/sass/app.scss', 'resources/js/app.js']); ?>
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="<?php echo e(url('/')); ?>">
-                    <?php echo e(config('app.name', 'Laravel')); ?>
+<div id="app">
+    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="<?php echo e(url('/')); ?>">
+                True games
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="<?php echo e(__('Toggle navigation')); ?>">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="<?php echo e(__('Toggle navigation')); ?>">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Left Side Of Navbar -->
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo e(url('/about')); ?>">О нас</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo e(url('/where')); ?>">Где нас найти</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo e(url('/catalog')); ?>">Каталог</a>
+                    </li>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
+                        <?php if(!Auth::check() || !Auth::user()->isAdmin()): ?>
 
-                    </ul>
+                    <?php else: ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo e(url('/admin')); ?>">админка</a>
+                        </li>
+                    <?php endif; ?>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        <?php if(auth()->guard()->guest()): ?>
-                            <?php if(Route::has('login')): ?>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="<?php echo e(route('login')); ?>"><?php echo e(__('Login')); ?></a>
-                                </li>
-                            <?php endif; ?>
 
-                            <?php if(Route::has('register')): ?>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="<?php echo e(route('register')); ?>"><?php echo e(__('Register')); ?></a>
-                                </li>
-                            <?php endif; ?>
-                        <?php else: ?>
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <?php echo e(Auth::user()->name); ?>
+                </ul>
+
+                <!-- Right Side Of Navbar -->
+                <ul class="navbar-nav ms-auto">
+                    <!-- Authentication Links -->
+                    <?php if(auth()->guard()->guest()): ?>
+                        <?php if(Route::has('login')): ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?php echo e(route('login')); ?>"><?php echo e(__('Login')); ?></a>
+                            </li>
+                        <?php endif; ?>
+
+                        <?php if(Route::has('register')): ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?php echo e(route('register')); ?>"><?php echo e(__('Register')); ?></a>
+                            </li>
+                        <?php endif; ?>
+                    <?php else: ?>
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <?php echo e(Auth::user()->name); ?>
+
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="<?php echo e(url('/cart')); ?>/<?php echo e(Auth::user()->id); ?>">Карзина</a>
+                                <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    <?php echo e(__('Logout')); ?>
 
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        <?php echo e(__('Logout')); ?>
-
-                                    </a>
-
-                                    <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" class="d-none">
-                                        <?php echo csrf_field(); ?>
-                                    </form>
-                                </div>
-                            </li>
-                        <?php endif; ?>
-                    </ul>
-                </div>
+                                <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" class="d-none">
+                                    <?php echo csrf_field(); ?>
+                                </form>
+                            </div>
+                        </li>
+                    <?php endif; ?>
+                </ul>
             </div>
-        </nav>
+        </div>
+    </nav>
 
-        <main class="py-4">
-            <?php echo $__env->yieldContent('content'); ?>
-        </main>
-    </div>
+    <main class="py-4">
+        <?php echo $__env->yieldContent('content'); ?>
+    </main>
+</div>
 </body>
 </html>
 <?php /**PATH /srv/users/snhaeaki/abhvrsh-m1/resources/views/layouts/app.blade.php ENDPATH**/ ?>

@@ -4,7 +4,7 @@
 
             <div class="card mb-3">
                 <div class="card-header">
-                    <img src="/public/img/map.jpg" class="w-100" alt="...">
+                    <img src="/public/img/map.jpg" class="w-50" alt="...">
                 </div>
                 <div class="card-body">
                     <h1>Кирова 21</h1>
